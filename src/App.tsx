@@ -90,12 +90,12 @@ function App() {
       <AnimatePresence>
         {showPuppy && (
           <motion.div
-            initial={{ x: -200, y: 0 }}
+            initial={{ x: -250, y: 0 }}
             animate={{ 
-              x: window.innerWidth + 200,
-              y: [0, -20, 0, -15, 0, -10, 0]
+              x: window.innerWidth + 250,
+              y: [0, -8, 0, -6, 0, -4, 0]
             }}
-            exit={{ x: window.innerWidth + 200 }}
+            exit={{ x: window.innerWidth + 250 }}
             transition={{ 
               duration: 4,
               ease: "linear",
@@ -107,149 +107,25 @@ function App() {
             }}
             className="fixed bottom-8 z-[9999] pointer-events-none"
           >
-            <svg
-              width="80"
-              height="80"
-              viewBox="0 0 100 100"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="drop-shadow-2xl"
-            >
-              <motion.g
-                animate={{
-                  rotate: [0, 5, 0, -5, 0]
-                }}
-                transition={{
-                  duration: 0.4,
+            <motion.img
+              src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&h=400&fit=crop&q=80"
+              alt="Running puppy"
+              className="w-32 h-32 object-cover rounded-2xl shadow-2xl"
+              style={{
+                filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 30px oklch(0.65 0.15 250 / 0.4))',
+                imageRendering: 'crisp-edges'
+              }}
+              animate={{
+                rotate: [-2, 2, -2]
+              }}
+              transition={{
+                rotate: {
+                  duration: 0.3,
                   repeat: Infinity,
                   ease: "easeInOut"
-                }}
-                style={{ originX: 0.5, originY: 0.5 }}
-              >
-                <ellipse cx="50" cy="70" rx="28" ry="18" fill="oklch(0.65 0.15 250)" opacity="0.2" />
-                
-                <motion.path
-                  d="M 60 45 Q 75 40 80 30 L 85 25"
-                  stroke="oklch(0.65 0.15 250)"
-                  strokeWidth="6"
-                  strokeLinecap="round"
-                  fill="none"
-                  animate={{
-                    d: [
-                      "M 60 45 Q 75 40 80 30 L 85 25",
-                      "M 60 45 Q 75 45 82 35 L 88 32",
-                      "M 60 45 Q 75 40 80 30 L 85 25"
-                    ]
-                  }}
-                  transition={{
-                    duration: 0.4,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
-                
-                <ellipse cx="50" cy="50" rx="22" ry="25" fill="oklch(0.65 0.15 250)" />
-                <ellipse cx="50" cy="48" rx="20" ry="22" fill="oklch(0.72 0.15 250)" />
-                
-                <circle cx="35" cy="35" r="10" fill="oklch(0.65 0.15 250)" />
-                <circle cx="35" cy="33" r="8" fill="oklch(0.72 0.15 250)" />
-                <ellipse cx="38" cy="32" rx="2" ry="3" fill="oklch(0.15 0.02 240)" />
-                
-                <circle cx="65" cy="35" r="10" fill="oklch(0.65 0.15 250)" />
-                <circle cx="65" cy="33" r="8" fill="oklch(0.72 0.15 250)" />
-                <ellipse cx="68" cy="32" rx="2" ry="3" fill="oklch(0.15 0.02 240)" />
-                
-                <ellipse cx="38" cy="45" rx="5" ry="7" fill="oklch(0.15 0.02 240)" />
-                <ellipse cx="62" cy="45" rx="5" ry="7" fill="oklch(0.15 0.02 240)" />
-                
-                <path
-                  d="M 45 52 Q 50 56 55 52"
-                  stroke="oklch(0.15 0.02 240)"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  fill="none"
-                />
-                <ellipse cx="50" cy="50" rx="4" ry="5" fill="oklch(0.15 0.02 240)" />
-                
-                <motion.ellipse
-                  cx="25"
-                  cy="62"
-                  rx="8"
-                  ry="12"
-                  fill="oklch(0.65 0.15 250)"
-                  animate={{
-                    cy: [62, 64, 62],
-                    ry: [12, 10, 12]
-                  }}
-                  transition={{
-                    duration: 0.2,
-                    repeat: Infinity,
-                    repeatDelay: 0.2,
-                    ease: "easeInOut"
-                  }}
-                />
-                <ellipse cx="25" cy="72" rx="7" ry="5" fill="oklch(0.15 0.02 240)" />
-                
-                <motion.ellipse
-                  cx="42"
-                  cy="65"
-                  rx="8"
-                  ry="12"
-                  fill="oklch(0.65 0.15 250)"
-                  animate={{
-                    cy: [65, 67, 65],
-                    ry: [12, 10, 12]
-                  }}
-                  transition={{
-                    duration: 0.2,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                />
-                <ellipse cx="42" cy="75" rx="7" ry="5" fill="oklch(0.15 0.02 240)" />
-                
-                <motion.ellipse
-                  cx="58"
-                  cy="65"
-                  rx="8"
-                  ry="12"
-                  fill="oklch(0.65 0.15 250)"
-                  animate={{
-                    cy: [65, 67, 65],
-                    ry: [12, 10, 12]
-                  }}
-                  transition={{
-                    duration: 0.2,
-                    repeat: Infinity,
-                    repeatDelay: 0.1,
-                    ease: "easeInOut"
-                  }}
-                />
-                <ellipse cx="58" cy="75" rx="7" ry="5" fill="oklch(0.15 0.02 240)" />
-                
-                <motion.ellipse
-                  cx="75"
-                  cy="62"
-                  rx="8"
-                  ry="12"
-                  fill="oklch(0.65 0.15 250)"
-                  animate={{
-                    cy: [62, 64, 62],
-                    ry: [12, 10, 12]
-                  }}
-                  transition={{
-                    duration: 0.2,
-                    repeat: Infinity,
-                    repeatDelay: 0.3,
-                    ease: "easeInOut"
-                  }}
-                />
-                <ellipse cx="75" cy="72" rx="7" ry="5" fill="oklch(0.15 0.02 240)" />
-                
-                <circle cx="42" cy="40" r="2.5" fill="oklch(0.98 0 0)" />
-                <circle cx="72" cy="40" r="2.5" fill="oklch(0.98 0 0)" />
-              </motion.g>
-            </svg>
+                }
+              }}
+            />
           </motion.div>
         )}
       </AnimatePresence>
