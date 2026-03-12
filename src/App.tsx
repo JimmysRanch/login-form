@@ -1,4 +1,4 @@
-import { useState, FormEvent, useEffect } from 'react'
+import { useState, FormEvent } from 'react'
 import { useKV } from '@github/spark/hooks'
 import { Eye, EyeSlash, User, Envelope, Lock, Check } from '@phosphor-icons/react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -13,22 +13,6 @@ function App() {
   const [passwordError, setPasswordError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
-  const [showPuppy, setShowPuppy] = useState(false)
-
-  useEffect(() => {
-    const runPuppy = () => {
-      setShowPuppy(true)
-      setTimeout(() => setShowPuppy(false), 4000)
-    }
-
-    const interval = setInterval(runPuppy, 15000)
-    const initialDelay = setTimeout(runPuppy, 3000)
-
-    return () => {
-      clearInterval(interval)
-      clearTimeout(initialDelay)
-    }
-  }, [])
 
   const validateEmail = (email: string): boolean => {
     if (!email) {
@@ -86,49 +70,6 @@ function App() {
     <>
       <Toaster position="top-center" />
       <div className="cosmic-particles" />
-      
-      <AnimatePresence>
-        {showPuppy && (
-          <motion.div
-            initial={{ x: -250, y: 0 }}
-            animate={{ 
-              x: window.innerWidth + 250,
-              y: [0, -8, 0, -6, 0, -4, 0]
-            }}
-            exit={{ x: window.innerWidth + 250 }}
-            transition={{ 
-              duration: 4,
-              ease: "linear",
-              y: {
-                duration: 4,
-                ease: "easeInOut",
-                times: [0, 0.15, 0.3, 0.45, 0.6, 0.75, 1]
-              }
-            }}
-            className="fixed bottom-8 z-[9999] pointer-events-none"
-          >
-            <motion.img
-              src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=400&h=400&fit=crop&q=80"
-              alt="Running puppy"
-              className="w-32 h-32 object-cover rounded-2xl shadow-2xl"
-              style={{
-                filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 30px oklch(0.65 0.15 250 / 0.4))',
-                imageRendering: 'crisp-edges'
-              }}
-              animate={{
-                rotate: [-2, 2, -2]
-              }}
-              transition={{
-                rotate: {
-                  duration: 0.3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }
-              }}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
       
       <div className="min-h-screen flex items-center justify-center p-4" style={{ perspective: '2000px' }}>
       <motion.div
