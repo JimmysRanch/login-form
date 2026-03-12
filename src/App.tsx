@@ -73,25 +73,28 @@ function App() {
   return (
     <>
       <Toaster position="top-center" />
-      <div className="min-h-screen flex items-center justify-center p-4 bg-background">
+      <div className="min-h-screen flex items-center justify-center p-4 bg-background" style={{ perspective: '1500px' }}>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0, y: 20, rotateX: 10 }}
+        animate={{ opacity: 1, y: 0, rotateX: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className="w-full max-w-md"
+        style={{ transformStyle: 'preserve-3d' }}
       >
         <div className="neu-card p-8 md:p-10 relative overflow-hidden">
           <AnimatePresence>
             {showSuccess && (
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.9, z: -50 }}
+                animate={{ opacity: 1, scale: 1, z: 0 }}
+                exit={{ opacity: 0, scale: 0.9, z: -50 }}
+                transition={{ duration: 0.4 }}
                 className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-background/95 backdrop-blur-sm"
+                style={{ transformStyle: 'preserve-3d' }}
               >
                 <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
+                  initial={{ scale: 0, rotateY: -180 }}
+                  animate={{ scale: 1, rotateY: 0 }}
                   transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
                   className="neu-icon-success mb-4"
                 >
@@ -104,9 +107,13 @@ function App() {
           </AnimatePresence>
 
           <div className="flex flex-col items-center mb-8">
-            <div className="neu-icon mb-4">
+            <motion.div 
+              className="neu-icon mb-4"
+              whileHover={{ scale: 1.05, rotateY: 5 }}
+              transition={{ type: 'spring', stiffness: 300 }}
+            >
               <User size={32} weight="duotone" className="text-primary" />
-            </div>
+            </motion.div>
             <h2 className="text-3xl font-semibold tracking-tight mb-2 text-foreground">Welcome back</h2>
             <p className="text-sm text-muted-foreground">Please sign in to continue</p>
           </div>
@@ -232,7 +239,9 @@ function App() {
             <motion.button
               type="submit"
               disabled={isLoading}
-              whileTap={{ scale: isLoading ? 1 : 0.98 }}
+              whileTap={{ scale: isLoading ? 1 : 0.98, z: isLoading ? 0 : -10 }}
+              whileHover={{ scale: 1.02, z: 5 }}
+              transition={{ type: 'spring', stiffness: 300 }}
               className="neu-button w-full relative"
             >
               <span className={`btn-text ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
@@ -255,7 +264,9 @@ function App() {
           <div className="flex gap-3 justify-center">
             <motion.button
               type="button"
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.92, z: -5 }}
+              whileHover={{ scale: 1.05, z: 5 }}
+              transition={{ type: 'spring', stiffness: 300 }}
               onClick={() => handleSocialLogin('Google')}
               className="neu-social"
               aria-label="Sign in with Google"
@@ -269,7 +280,9 @@ function App() {
             </motion.button>
             <motion.button
               type="button"
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.92, z: -5 }}
+              whileHover={{ scale: 1.05, z: 5 }}
+              transition={{ type: 'spring', stiffness: 300 }}
               onClick={() => handleSocialLogin('GitHub')}
               className="neu-social"
               aria-label="Sign in with GitHub"
@@ -280,7 +293,9 @@ function App() {
             </motion.button>
             <motion.button
               type="button"
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.92, z: -5 }}
+              whileHover={{ scale: 1.05, z: 5 }}
+              transition={{ type: 'spring', stiffness: 300 }}
               onClick={() => handleSocialLogin('Twitter')}
               className="neu-social"
               aria-label="Sign in with Twitter"
