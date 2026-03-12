@@ -73,7 +73,7 @@ function App() {
   return (
     <>
       <Toaster position="top-center" />
-      <div className="min-h-screen flex items-center justify-center p-4 bg-background" style={{ perspective: '1500px' }}>
+      <div className="min-h-screen flex items-center justify-center p-4 bg-background" style={{ perspective: '2000px' }}>
       <motion.div
         initial={{ opacity: 0, y: 20, rotateX: 10 }}
         animate={{ opacity: 1, y: 0, rotateX: 0 }}
@@ -81,7 +81,7 @@ function App() {
         className="w-full max-w-md"
         style={{ transformStyle: 'preserve-3d' }}
       >
-        <div className="neu-card p-8 md:p-10 relative overflow-hidden">
+        <div className="neu-card-3d p-8 md:p-10 relative overflow-hidden">
           <AnimatePresence>
             {showSuccess && (
               <motion.div

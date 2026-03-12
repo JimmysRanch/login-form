@@ -81,40 +81,107 @@
   transform-style: preserve-3d;
 }
 
+.neu-card-3d {
+  background: 
+    linear-gradient(145deg, oklch(0.19 0.02 240), oklch(0.17 0.02 240)),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02), transparent 50%, rgba(0, 0, 0, 0.3));
+  border-radius: var(--radius-lg);
+  box-shadow: 
+    0 50px 100px rgba(0, 0, 0, 0.8),
+    0 25px 50px rgba(0, 0, 0, 0.7),
+    0 10px 20px rgba(0, 0, 0, 0.6),
+    -30px -30px 60px rgba(255, 255, 255, 0.05),
+    inset 0 2px 4px rgba(255, 255, 255, 0.08),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.4),
+    inset 2px 0 4px rgba(255, 255, 255, 0.04),
+    inset -2px 0 4px rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ(50px);
+  backdrop-filter: blur(20px);
+}
+
+.neu-card-3d::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: var(--radius-lg);
+  padding: 2px;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.05) 25%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.3) 75%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  transform: translateZ(-10px);
+}
+
+.neu-card-3d::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.15), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.4), transparent 40%);
+  pointer-events: none;
+  transform: translateZ(1px);
+}
+
 .neu-icon {
   width: 64px;
   height: 64px;
   border-radius: var(--radius-md);
-  background: linear-gradient(145deg, oklch(0.24 0.02 240), oklch(0.20 0.02 240));
+  background: 
+    linear-gradient(145deg, oklch(0.24 0.02 240), oklch(0.20 0.02 240)),
+    linear-gradient(to bottom right, rgba(255, 255, 255, 0.05), transparent 60%);
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 
-    10px 10px 20px rgba(0, 0, 0, 0.5),
-    -10px -10px 20px rgba(255, 255, 255, 0.03),
-    inset 3px 3px 6px rgba(255, 255, 255, 0.05),
-    inset -3px -3px 6px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+    0 15px 30px rgba(0, 0, 0, 0.6),
+    0 8px 15px rgba(0, 0, 0, 0.5),
+    -12px -12px 24px rgba(255, 255, 255, 0.04),
+    inset 0 2px 4px rgba(255, 255, 255, 0.08),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.5),
+    inset 2px 0 4px rgba(255, 255, 255, 0.04),
+    inset -2px 0 4px rgba(0, 0, 0, 0.4);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
   position: relative;
-  transform: translateZ(20px);
+  transform: translateZ(35px);
+  transform-style: preserve-3d;
 }
 
 .neu-icon-success {
   width: 80px;
   height: 80px;
   border-radius: var(--radius-md);
-  background: linear-gradient(145deg, oklch(0.24 0.02 240), oklch(0.20 0.02 240));
+  background: 
+    linear-gradient(145deg, oklch(0.24 0.02 240), oklch(0.20 0.02 240)),
+    linear-gradient(to bottom right, rgba(255, 255, 255, 0.05), transparent 60%);
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 
-    12px 12px 24px rgba(0, 0, 0, 0.5),
-    -12px -12px 24px rgba(255, 255, 255, 0.03),
-    inset 4px 4px 8px rgba(255, 255, 255, 0.05),
-    inset -4px -4px 8px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+    0 20px 40px rgba(0, 0, 0, 0.7),
+    0 10px 20px rgba(0, 0, 0, 0.6),
+    -15px -15px 30px rgba(255, 255, 255, 0.04),
+    inset 0 3px 6px rgba(255, 255, 255, 0.08),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.5),
+    inset 3px 0 6px rgba(255, 255, 255, 0.04),
+    inset -3px 0 6px rgba(0, 0, 0, 0.4);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
   position: relative;
-  transform: translateZ(30px);
+  transform: translateZ(45px);
+  transform-style: preserve-3d;
 }
 
 .neu-input {
@@ -123,17 +190,23 @@
   font-size: 15px;
   border: none;
   outline: none;
-  background: linear-gradient(145deg, oklch(0.20 0.02 240), oklch(0.23 0.02 240));
+  background: 
+    linear-gradient(145deg, oklch(0.20 0.02 240), oklch(0.23 0.02 240)),
+    linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.2));
   color: var(--foreground);
   border-radius: var(--radius-md);
   transition: all 0.3s ease;
   font-family: var(--font-inter);
   box-shadow: 
-    inset 8px 8px 16px rgba(0, 0, 0, 0.6),
-    inset -8px -8px 16px rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.3);
+    inset 0 10px 20px rgba(0, 0, 0, 0.7),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.03),
+    inset 8px 0 16px rgba(0, 0, 0, 0.5),
+    inset -8px 0 16px rgba(0, 0, 0, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.4);
   position: relative;
-  transform: translateZ(5px);
+  transform: translateZ(15px);
+  transform-style: preserve-3d;
 }
 
 .neu-input::placeholder {
@@ -142,20 +215,25 @@
 
 .neu-input:focus {
   box-shadow: 
-    inset 8px 8px 16px rgba(0, 0, 0, 0.7),
-    inset -8px -8px 16px rgba(255, 255, 255, 0.04),
-    0 0 0 3px oklch(0.65 0.15 195 / 0.2),
-    0 0 20px oklch(0.65 0.15 195 / 0.15);
-  border: 1px solid oklch(0.65 0.15 195 / 0.3);
-  transform: translateZ(8px);
+    inset 0 12px 24px rgba(0, 0, 0, 0.8),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.04),
+    inset 10px 0 20px rgba(0, 0, 0, 0.6),
+    inset -10px 0 20px rgba(0, 0, 0, 0.6),
+    0 0 0 3px oklch(0.65 0.15 195 / 0.25),
+    0 0 30px oklch(0.65 0.15 195 / 0.2),
+    0 4px 8px rgba(0, 0, 0, 0.4);
+  border: 1px solid oklch(0.65 0.15 195 / 0.4);
+  transform: translateZ(20px);
 }
 
 .neu-toggle {
   width: 36px;
   height: 36px;
   border-radius: var(--radius-md);
-  background: linear-gradient(145deg, oklch(0.24 0.02 240), oklch(0.20 0.02 240));
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: 
+    linear-gradient(145deg, oklch(0.24 0.02 240), oklch(0.20 0.02 240)),
+    linear-gradient(to bottom right, rgba(255, 255, 255, 0.04), transparent 50%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -163,30 +241,39 @@
   color: var(--muted-foreground);
   transition: all 0.3s ease;
   box-shadow: 
-    6px 6px 12px rgba(0, 0, 0, 0.5),
-    -6px -6px 12px rgba(255, 255, 255, 0.03),
-    inset 1px 1px 2px rgba(255, 255, 255, 0.04),
-    inset -1px -1px 2px rgba(0, 0, 0, 0.3);
+    0 8px 16px rgba(0, 0, 0, 0.6),
+    0 4px 8px rgba(0, 0, 0, 0.5),
+    -8px -8px 16px rgba(255, 255, 255, 0.03),
+    inset 0 1px 2px rgba(255, 255, 255, 0.06),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+    inset 1px 0 2px rgba(255, 255, 255, 0.03),
+    inset -1px 0 2px rgba(0, 0, 0, 0.3);
   position: relative;
-  transform: translateZ(10px);
+  transform: translateZ(20px);
+  transform-style: preserve-3d;
 }
 
 .neu-toggle:hover {
   color: var(--primary);
   box-shadow: 
-    8px 8px 16px rgba(0, 0, 0, 0.5),
-    -8px -8px 16px rgba(255, 255, 255, 0.03),
-    inset 1px 1px 2px rgba(255, 255, 255, 0.05),
-    inset -1px -1px 2px rgba(0, 0, 0, 0.3),
-    0 0 15px oklch(0.65 0.15 195 / 0.2);
-  transform: translateZ(12px);
+    0 10px 20px rgba(0, 0, 0, 0.6),
+    0 5px 10px rgba(0, 0, 0, 0.5),
+    -10px -10px 20px rgba(255, 255, 255, 0.04),
+    inset 0 1px 2px rgba(255, 255, 255, 0.08),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+    inset 1px 0 2px rgba(255, 255, 255, 0.04),
+    inset -1px 0 2px rgba(0, 0, 0, 0.3),
+    0 0 20px oklch(0.65 0.15 195 / 0.25);
+  transform: translateZ(25px);
 }
 
 .neu-toggle:active {
   box-shadow: 
-    inset 6px 6px 12px rgba(0, 0, 0, 0.6),
-    inset -6px -6px 12px rgba(255, 255, 255, 0.02);
-  transform: translateZ(5px);
+    inset 0 8px 16px rgba(0, 0, 0, 0.7),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.02),
+    inset 6px 0 12px rgba(0, 0, 0, 0.6),
+    inset -6px 0 12px rgba(0, 0, 0, 0.6);
+  transform: translateZ(12px);
 }
 
 .neu-checkbox {
@@ -220,9 +307,11 @@
 .neu-button {
   width: 100%;
   padding: 14px 24px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-md);
-  background: linear-gradient(145deg, oklch(0.68 0.15 195), oklch(0.62 0.15 195));
+  background: 
+    linear-gradient(145deg, oklch(0.68 0.15 195), oklch(0.62 0.15 195)),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.15), transparent 50%, rgba(0, 0, 0, 0.2));
   color: var(--primary-foreground);
   font-size: 16px;
   font-weight: 500;
@@ -231,32 +320,45 @@
   transition: all 0.3s ease;
   letter-spacing: 0.01em;
   box-shadow: 
-    10px 10px 20px rgba(0, 0, 0, 0.5),
-    -10px -10px 20px rgba(255, 255, 255, 0.03),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.2),
-    inset -2px -2px 4px rgba(0, 0, 0, 0.3);
+    0 15px 30px rgba(0, 0, 0, 0.6),
+    0 8px 15px rgba(0, 0, 0, 0.5),
+    -12px -12px 24px rgba(255, 255, 255, 0.04),
+    inset 0 2px 4px rgba(255, 255, 255, 0.25),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.4),
+    inset 2px 0 4px rgba(255, 255, 255, 0.15),
+    inset -2px 0 4px rgba(0, 0, 0, 0.3);
   position: relative;
-  transform: translateZ(15px);
+  transform: translateZ(30px);
   transform-style: preserve-3d;
 }
 
 .neu-button:hover:not(:disabled) {
-  background: linear-gradient(145deg, oklch(0.72 0.15 195), oklch(0.66 0.15 195));
+  background: 
+    linear-gradient(145deg, oklch(0.72 0.15 195), oklch(0.66 0.15 195)),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.2), transparent 50%, rgba(0, 0, 0, 0.2));
   box-shadow: 
-    12px 12px 24px rgba(0, 0, 0, 0.6),
-    -12px -12px 24px rgba(255, 255, 255, 0.04),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.25),
-    inset -2px -2px 4px rgba(0, 0, 0, 0.3),
-    0 0 30px oklch(0.65 0.15 195 / 0.5);
-  transform: translateZ(20px) translateY(-2px);
+    0 20px 40px rgba(0, 0, 0, 0.7),
+    0 10px 20px rgba(0, 0, 0, 0.6),
+    -15px -15px 30px rgba(255, 255, 255, 0.05),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.4),
+    inset 2px 0 4px rgba(255, 255, 255, 0.2),
+    inset -2px 0 4px rgba(0, 0, 0, 0.3),
+    0 0 40px oklch(0.65 0.15 195 / 0.6);
+  transform: translateZ(40px) translateY(-3px);
 }
 
 .neu-button:active:not(:disabled) {
-  background: linear-gradient(145deg, oklch(0.58 0.15 195), oklch(0.64 0.15 195));
+  background: 
+    linear-gradient(145deg, oklch(0.58 0.15 195), oklch(0.64 0.15 195)),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.1), transparent);
   box-shadow: 
-    inset 8px 8px 16px rgba(0, 0, 0, 0.5),
-    inset -8px -8px 16px rgba(0, 0, 0, 0.3);
-  transform: translateZ(10px) translateY(1px);
+    inset 0 10px 20px rgba(0, 0, 0, 0.6),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.4),
+    inset 8px 0 16px rgba(0, 0, 0, 0.5),
+    inset -8px 0 16px rgba(0, 0, 0, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+  transform: translateZ(20px) translateY(1px);
 }
 
 .neu-button:disabled {
@@ -300,35 +402,46 @@
   width: 56px;
   height: 56px;
   border-radius: var(--radius-md);
-  background: linear-gradient(145deg, oklch(0.24 0.02 240), oklch(0.20 0.02 240));
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: 
+    linear-gradient(145deg, oklch(0.24 0.02 240), oklch(0.20 0.02 240)),
+    linear-gradient(to bottom right, rgba(255, 255, 255, 0.04), transparent 50%);
+  border: 1.5px solid rgba(255, 255, 255, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 
-    8px 8px 16px rgba(0, 0, 0, 0.5),
-    -8px -8px 16px rgba(255, 255, 255, 0.03),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.04),
-    inset -2px -2px 4px rgba(0, 0, 0, 0.3);
+    0 10px 20px rgba(0, 0, 0, 0.6),
+    0 5px 10px rgba(0, 0, 0, 0.5),
+    -10px -10px 20px rgba(255, 255, 255, 0.03),
+    inset 0 2px 4px rgba(255, 255, 255, 0.06),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.4),
+    inset 2px 0 4px rgba(255, 255, 255, 0.03),
+    inset -2px 0 4px rgba(0, 0, 0, 0.3);
   position: relative;
-  transform: translateZ(10px);
+  transform: translateZ(25px);
+  transform-style: preserve-3d;
 }
 
 .neu-social:hover {
   box-shadow: 
-    10px 10px 20px rgba(0, 0, 0, 0.6),
-    -10px -10px 20px rgba(255, 255, 255, 0.04),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.06),
-    inset -2px -2px 4px rgba(0, 0, 0, 0.3),
-    0 0 20px oklch(0.65 0.15 195 / 0.3);
-  transform: translateZ(15px) translateY(-2px);
+    0 15px 30px rgba(0, 0, 0, 0.7),
+    0 8px 15px rgba(0, 0, 0, 0.6),
+    -12px -12px 24px rgba(255, 255, 255, 0.04),
+    inset 0 2px 4px rgba(255, 255, 255, 0.08),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.4),
+    inset 2px 0 4px rgba(255, 255, 255, 0.04),
+    inset -2px 0 4px rgba(0, 0, 0, 0.3),
+    0 0 25px oklch(0.65 0.15 195 / 0.35);
+  transform: translateZ(32px) translateY(-3px);
 }
 
 .neu-social:active {
   box-shadow: 
-    inset 6px 6px 12px rgba(0, 0, 0, 0.6),
-    inset -6px -6px 12px rgba(255, 255, 255, 0.02);
-  transform: translateZ(8px) translateY(1px);
+    inset 0 8px 16px rgba(0, 0, 0, 0.7),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.02),
+    inset 6px 0 12px rgba(0, 0, 0, 0.6),
+    inset -6px 0 12px rgba(0, 0, 0, 0.6);
+  transform: translateZ(18px) translateY(1px);
 }
