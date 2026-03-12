@@ -71,10 +71,10 @@
 .neu-card {
   background: var(--card);
   border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
   box-shadow: 
-    0 4px 6px -1px rgb(0 0 0 / 0.3),
-    0 2px 4px -2px rgb(0 0 0 / 0.3);
+    12px 12px 24px rgba(0, 0, 0, 0.4),
+    -12px -12px 24px rgba(255, 255, 255, 0.02),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
 }
 
 .neu-icon {
@@ -85,7 +85,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--border);
+  box-shadow: 
+    6px 6px 12px rgba(0, 0, 0, 0.3),
+    -6px -6px 12px rgba(255, 255, 255, 0.02),
+    inset 2px 2px 4px rgba(0, 0, 0, 0.2),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.02);
 }
 
 .neu-icon-success {
@@ -96,20 +100,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--border);
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.3),
+    -8px -8px 16px rgba(255, 255, 255, 0.02),
+    inset 3px 3px 6px rgba(0, 0, 0, 0.2),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.02);
 }
 
 .neu-input {
   width: 100%;
   padding: 14px 16px 14px 48px;
   font-size: 15px;
-  border: 1px solid var(--input);
+  border: none;
   outline: none;
   background: var(--input);
   color: var(--foreground);
   border-radius: var(--radius-md);
   transition: all 0.2s ease;
   font-family: var(--font-inter);
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.4),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.02);
 }
 
 .neu-input::placeholder {
@@ -117,8 +128,10 @@
 }
 
 .neu-input:focus {
-  border-color: var(--ring);
-  box-shadow: 0 0 0 3px oklch(0.65 0.15 195 / 0.15);
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.4),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.02),
+    0 0 0 3px oklch(0.65 0.15 195 / 0.15);
 }
 
 .neu-toggle {
@@ -126,22 +139,29 @@
   height: 36px;
   border-radius: var(--radius-md);
   background: var(--secondary);
-  border: 1px solid var(--border);
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   color: var(--muted-foreground);
   transition: all 0.2s ease;
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.3),
+    -4px -4px 8px rgba(255, 255, 255, 0.02);
 }
 
 .neu-toggle:hover {
   color: var(--primary);
-  background: var(--muted);
+  box-shadow: 
+    5px 5px 10px rgba(0, 0, 0, 0.35),
+    -5px -5px 10px rgba(255, 255, 255, 0.025);
 }
 
 .neu-toggle:active {
-  background: var(--input);
+  box-shadow: 
+    inset 3px 3px 6px rgba(0, 0, 0, 0.4),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.02);
 }
 
 .neu-checkbox {
@@ -149,16 +169,22 @@
   height: 20px;
   border-radius: 4px;
   background: var(--input);
-  border: 1px solid var(--border);
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
+  box-shadow: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.4),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.02);
 }
 
 .neu-checkbox.checked {
   background: var(--primary);
-  border-color: var(--primary);
+  box-shadow: 
+    inset 2px 2px 6px rgba(0, 0, 0, 0.3),
+    inset -2px -2px 6px rgba(0, 0, 0, 0.1),
+    0 0 8px oklch(0.65 0.15 195 / 0.3);
 }
 
 .neu-button {
@@ -174,15 +200,27 @@
   cursor: pointer;
   transition: all 0.2s ease;
   letter-spacing: 0.01em;
+  box-shadow: 
+    6px 6px 12px rgba(0, 0, 0, 0.4),
+    -6px -6px 12px rgba(255, 255, 255, 0.02),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .neu-button:hover:not(:disabled) {
   background: oklch(0.7 0.15 195);
-  box-shadow: 0 0 20px oklch(0.65 0.15 195 / 0.4);
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.4),
+    -8px -8px 16px rgba(255, 255, 255, 0.02),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.2),
+    0 0 20px oklch(0.65 0.15 195 / 0.4);
 }
 
 .neu-button:active:not(:disabled) {
   background: oklch(0.6 0.15 195);
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.4),
+    inset -4px -4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(1px);
 }
 
 .neu-button:disabled {
@@ -218,19 +256,27 @@
   height: 56px;
   border-radius: var(--radius-md);
   background: var(--secondary);
-  border: 1px solid var(--border);
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
+  box-shadow: 
+    5px 5px 10px rgba(0, 0, 0, 0.3),
+    -5px -5px 10px rgba(255, 255, 255, 0.02);
 }
 
 .neu-social:hover {
-  background: var(--muted);
-  border-color: var(--ring);
+  box-shadow: 
+    6px 6px 12px rgba(0, 0, 0, 0.35),
+    -6px -6px 12px rgba(255, 255, 255, 0.025),
+    0 0 12px oklch(0.65 0.15 195 / 0.2);
 }
 
 .neu-social:active {
-  background: var(--input);
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.4),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.02);
+  transform: translateY(1px);
 }
