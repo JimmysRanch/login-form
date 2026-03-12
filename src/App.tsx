@@ -225,6 +225,9 @@ function App() {
               <a
                 href="#"
                 className="text-primary hover:text-primary/80 transition-colors font-medium"
+                style={{ color: 'oklch(0.70 0.18 340)' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = 'oklch(0.75 0.18 340)'}
+                onMouseLeave={(e) => e.currentTarget.style.color = 'oklch(0.70 0.18 340)'}
                 onClick={(e) => {
                   e.preventDefault()
                   toast.info('Password reset would be initiated here')
@@ -258,7 +261,10 @@ function App() {
               Don't have an account?{' '}
               <a
                 href="#"
-                className="text-primary hover:text-primary/80 transition-colors font-medium"
+                className="font-medium transition-colors"
+                style={{ color: 'oklch(0.70 0.18 340)' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = 'oklch(0.75 0.18 340)'}
+                onMouseLeave={(e) => e.currentTarget.style.color = 'oklch(0.70 0.18 340)'}
                 onClick={(e) => {
                   e.preventDefault()
                   toast.info('Sign up would be initiated here')
