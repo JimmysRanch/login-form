@@ -69,7 +69,8 @@ function App() {
   return (
     <>
       <Toaster position="top-center" />
-      <div className="min-h-screen flex items-center justify-center p-4 bg-background" style={{ perspective: '2000px' }}>
+      <div className="cosmic-particles" />
+      <div className="min-h-screen flex items-center justify-center p-4" style={{ perspective: '2000px' }}>
       <motion.div
         initial={{ opacity: 0, y: 20, rotateX: 10 }}
         animate={{ opacity: 1, y: 0, rotateX: 0 }}
